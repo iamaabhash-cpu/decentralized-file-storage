@@ -1,0 +1,137 @@
+Decentrazlied file system 
+This is a decentrazlied file system Demo made from the blockchain techonology. It is a web based application. 
+It usese the IPFS system while recording metadata on Ethererum Blockchain.
+The system store the CID making storage safe,decentralized and efficent. 
+This project demonstrates the integration of modern Web3 technologies including React, Express.js, Solidity, Hardhat, MetaMask, Ethers.js, and IPFS.
+
+......................................................................
+Features
+Upload files to IPFS
+Store IPFS CIDs on the Ethereum blockchain
+Connect with MetaMask
+View uploaded file information
+Rename uploaded files
+Share files with other Ethereum addresses
+Revoke file access
+Secure ownership verification using wallet addresses
+Event logging for blockchain transactions
+
+.............................................................................
+Technologies Used
+
+Frontend
+React
+Vite
+Ethers.js
+MetaMask
+Backend
+Node.js
+Express.js
+Multer
+Axios
+FormData
+Dotenv
+CORS
+Pinata IPFS API
+Blockchain
+Solidity
+Hardhat
+Hardhat Ignition
+TypeScript
+Ethers.js
+MetaMask
+Ethereum Local Development Network
+
+......................................................................................
+1. Clone the repository
+git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+cd YOUR_REPOSITORY
+
+
+..............................................
+2. Install dependencies
+Frontend
+cd frontend
+npm install ethers 
+
+...............................................
+Backend
+cd ../backend
+npm install express
+npm install multer
+npm install cors
+npm install dotenv
+npm install axios
+npm install --save-dev nodemon
+
+...........................................
+Blockchain
+cd ../BlockChain
+npm install hardhat (vite and typescript one) 
+npx hardhat compile
+npx hardhat node
+npx hardhat test
+
+............................................
+Step 1: Start the Hardhat blockchain
+cd BlockChain
+npx hardhat node
+
+........................................
+Step 2: Deploy the smart contract
+
+Open another terminal.
+
+cd BlockChain
+npx hardhat ignition deploy ./ignition/modules/FileStorage.ts --network localhost
+
+Copy the deployed contract address and update:
+
+frontend/src/blockchain.js
+
+.......................................................
+Step 3: Start the backend
+cd backend
+npm run dev
+or 
+node server.js
+
+....................................................
+Step 4: Start the frontend
+cd frontend
+npm run dev
+
+.......................................................
+Step 5: Connect MetaMask
+Add the Hardhat Local network.
+Import a Hardhat test account.
+Connect your wallet.
+Upload files.
+
+...........................................................
+How It Works
+The user selects a file.
+The frontend sends the file to the backend.
+The backend uploads the file to IPFS through Pinata.
+Pinata returns a unique CID.
+MetaMask requests transaction approval.
+The smart contract stores the CID and metadata on the blockchain.
+The uploaded file can be accessed through its IPFS CID.
+
+...........................................................
+System Architecture
+User
+   │
+React Frontend
+   │
+Express Backend
+   │
+Upload File to IPFS
+   │
+Receive CID
+   │
+MetaMask
+   │
+Smart Contract (Solidity)
+   │
+Ethereum Blockchain
