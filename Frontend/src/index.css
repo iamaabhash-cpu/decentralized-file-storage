@@ -1,0 +1,229 @@
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Main App */
+.app {
+  min-height: 100vh;
+  background: #050505;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  font-family: "Segoe UI", sans-serif;
+  color: white;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  25% {
+    transform: translateY(-20px);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+
+  75% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Circles */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite;
+}
+
+.circle1 {
+  width: 120px;
+  height: 120px;
+  background: #3b82f6;
+  top: 10%;
+  left: 5%;
+}
+
+.circle2 {
+  width: 180px;
+  height: 180px;
+  background: #9333ea;
+  bottom: 8%;
+  right: 5%;
+  animation-delay: 2s;
+}
+
+.circle3 {
+  width: 90px;
+  height: 90px;
+  background: #06b6d4;
+  top: 65%;
+  left: 15%;
+  animation-delay: 4s;
+}
+
+/* Squares */
+.square {
+  position: absolute;
+  animation: float 10s ease-in-out infinite;
+}
+
+.square1 {
+  width: 100px;
+  height: 100px;
+  background: #f43f5e;
+  top: 20%;
+  right: 18%;
+  transform: rotate(45deg);
+}
+
+.square2 {
+  width: 80px;
+  height: 80px;
+  background: #22c55e;
+  bottom: 18%;
+  left: 25%;
+  transform: rotate(45deg);
+}
+
+/* Triangles */
+.triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  animation: float 12s ease-in-out infinite;
+}
+
+.triangle1 {
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 90px solid #f59e0b;
+  top: 12%;
+  right: 40%;
+}
+
+.triangle2 {
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 70px solid #ec4899;
+  bottom: 12%;
+  left: 40%;
+}
+
+/* Main Card */
+.container {
+  width: 550px;
+  background: #111111;
+  border: 1px solid #222;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  z-index: 10;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Heading */
+.container h1 {
+  margin-bottom: 10px;
+  font-size: 2.3rem;
+}
+
+/* Subtitle */
+.container p {
+  color: #bdbdbd;
+}
+
+/* Upload Section */
+.upload-box {
+  margin-top: 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Choose File Button */
+.custom-file-btn {
+  background: #222;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 10px;
+  border: 1px solid #444;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.custom-file-btn:hover {
+  background: #333;
+  transform: scale(1.05);
+}
+
+/* File Name */
+.upload-box p {
+  color: #bdbdbd;
+}
+
+/* Upload Button */
+button {
+  padding: 12px 35px;
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(
+    135deg,
+    #3b82f6,
+    #9333ea
+  );
+
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+button:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Upload Result Box */
+pre {
+  width: 100%;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: left;
+  overflow-wrap: break-word;
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+  .container {
+    width: 90%;
+    padding: 25px;
+  }
+
+  .container h1 {
+    font-size: 1.8rem;
+  }
+}

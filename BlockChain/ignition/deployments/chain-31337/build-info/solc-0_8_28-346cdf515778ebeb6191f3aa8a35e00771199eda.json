@@ -1,0 +1,49 @@
+{
+  "_format": "hh3-sol-build-info-1",
+  "id": "solc-0_8_28-346cdf515778ebeb6191f3aa8a35e00771199eda",
+  "solcVersion": "0.8.28",
+  "solcLongVersion": "0.8.28+commit.7893614a",
+  "compilerType": "solc",
+  "toolVersions": {
+    "hardhat": "3.9.0"
+  },
+  "userSourceNameMap": {
+    "contracts/FileStorage.sol": "project/contracts/FileStorage.sol"
+  },
+  "input": {
+    "language": "Solidity",
+    "settings": {
+      "evmVersion": "cancun",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "": [
+            "ast"
+          ],
+          "*": [
+            "abi",
+            "evm.bytecode.linkReferences",
+            "evm.bytecode.object",
+            "evm.bytecode.opcodes",
+            "evm.bytecode.sourceMap",
+            "evm.deployedBytecode.immutableReferences",
+            "evm.deployedBytecode.linkReferences",
+            "evm.deployedBytecode.object",
+            "evm.deployedBytecode.opcodes",
+            "evm.deployedBytecode.sourceMap",
+            "evm.methodIdentifiers"
+          ]
+        }
+      },
+      "remappings": []
+    },
+    "sources": {
+      "project/contracts/FileStorage.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.20;\r\n\r\ncontract FileStorage {\r\n\r\n    struct File {\r\n        string cid;\r\n        string fileName;\r\n        address owner;\r\n        uint256 uploadTime;\r\n    }\r\n\r\n    File[] public files;\r\n\r\n    event FileUploaded(\r\n        string cid,\r\n        string fileName,\r\n        address owner,\r\n        uint256 uploadTime\r\n    );\r\n\r\n    function uploadFile(string memory _cid, string memory _fileName) public {\r\n\r\n        files.push(\r\n            File({\r\n                cid: _cid,\r\n                fileName: _fileName,\r\n                owner: msg.sender,\r\n                uploadTime: block.timestamp\r\n            })\r\n        );\r\n\r\n        emit FileUploaded(\r\n            _cid,\r\n            _fileName,\r\n            msg.sender,\r\n            block.timestamp\r\n        );\r\n    }\r\n\r\n    function getFile(uint index)\r\n        public\r\n        view\r\n        returns (\r\n            string memory,\r\n            string memory,\r\n            address,\r\n            uint256\r\n        )\r\n    {\r\n        File memory file = files[index];\r\n\r\n        return (\r\n            file.cid,\r\n            file.fileName,\r\n            file.owner,\r\n            file.uploadTime\r\n        );\r\n    }\r\n\r\n    function getFileCount() public view returns(uint){\r\n        return files.length;\r\n    }\r\n}"
+      }
+    }
+  }
+}
