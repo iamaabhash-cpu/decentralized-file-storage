@@ -1,229 +1,391 @@
+/* ==========================
+   RESET
+========================== */
 
-/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Main App */
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #050505;
+}
+
+/* ==========================
+   APP
+========================== */
+
 .app {
   min-height: 100vh;
-  background: #050505;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   overflow: hidden;
-  font-family: "Segoe UI", sans-serif;
   color: white;
 }
 
-/* Floating Animation */
+/* ==========================
+   FLOATING SHAPES
+========================== */
+
 @keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-
-  25% {
-    transform: translateY(-20px);
-  }
-
-  50% {
-    transform: translateY(10px);
-  }
-
-  75% {
-    transform: translateY(-15px);
-  }
-
-  100% {
-    transform: translateY(0px);
-  }
+  0% { transform: translateY(0px); }
+  25% { transform: translateY(-20px); }
+  50% { transform: translateY(10px); }
+  75% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
 }
 
-/* Circles */
-.circle {
-  position: absolute;
-  border-radius: 50%;
-  animation: float 8s ease-in-out infinite;
+.circle,
+.square,
+.triangle{
+  position:absolute;
+  animation:float 10s ease-in-out infinite;
 }
 
-.circle1 {
-  width: 120px;
-  height: 120px;
-  background: #3b82f6;
-  top: 10%;
-  left: 5%;
+.circle{
+  border-radius:50%;
 }
 
-.circle2 {
-  width: 180px;
-  height: 180px;
-  background: #9333ea;
-  bottom: 8%;
-  right: 5%;
-  animation-delay: 2s;
+.circle1{
+  width:120px;
+  height:120px;
+  background:#3b82f6;
+  top:8%;
+  left:5%;
 }
 
-.circle3 {
-  width: 90px;
-  height: 90px;
-  background: #06b6d4;
-  top: 65%;
-  left: 15%;
-  animation-delay: 4s;
+.circle2{
+  width:170px;
+  height:170px;
+  background:#9333ea;
+  bottom:7%;
+  right:5%;
+  animation-delay:2s;
 }
 
-/* Squares */
-.square {
-  position: absolute;
-  animation: float 10s ease-in-out infinite;
+.circle3{
+  width:90px;
+  height:90px;
+  background:#06b6d4;
+  left:10%;
+  bottom:20%;
+  animation-delay:4s;
 }
 
-.square1 {
-  width: 100px;
-  height: 100px;
-  background: #f43f5e;
-  top: 20%;
-  right: 18%;
-  transform: rotate(45deg);
+.square1{
+  width:90px;
+  height:90px;
+  background:#f43f5e;
+  transform:rotate(45deg);
+  right:15%;
+  top:20%;
 }
 
-.square2 {
-  width: 80px;
-  height: 80px;
-  background: #22c55e;
-  bottom: 18%;
-  left: 25%;
-  transform: rotate(45deg);
+.square2{
+  width:75px;
+  height:75px;
+  background:#22c55e;
+  transform:rotate(45deg);
+  left:22%;
+  bottom:15%;
 }
 
-/* Triangles */
-.triangle {
-  position: absolute;
-  width: 0;
-  height: 0;
-  animation: float 12s ease-in-out infinite;
+.triangle1{
+  width:0;
+  height:0;
+  border-left:45px solid transparent;
+  border-right:45px solid transparent;
+  border-bottom:80px solid #f59e0b;
+  top:12%;
+  left:45%;
 }
 
-.triangle1 {
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-bottom: 90px solid #f59e0b;
-  top: 12%;
-  right: 40%;
+.triangle2{
+  width:0;
+  height:0;
+  border-left:35px solid transparent;
+  border-right:35px solid transparent;
+  border-bottom:65px solid #ec4899;
+  bottom:10%;
+  right:35%;
 }
 
-.triangle2 {
-  border-left: 40px solid transparent;
-  border-right: 40px solid transparent;
-  border-bottom: 70px solid #ec4899;
-  bottom: 12%;
-  left: 40%;
+/* ==========================
+   MAIN CARD
+========================== */
+
+.container{
+  width:800px;
+  max-width:95%;
+  background:#111;
+  border:1px solid #262626;
+  border-radius:22px;
+  padding:45px;
+  box-shadow:0 20px 60px rgba(0,0,0,.55);
+  z-index:10;
 }
 
-/* Main Card */
-.container {
-  width: 550px;
-  background: #111111;
-  border: 1px solid #222;
-  border-radius: 20px;
-  padding: 40px;
-  text-align: center;
-  z-index: 10;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+/* ==========================
+   HEADINGS
+========================== */
+
+.container h1{
+  text-align:center;
+  font-size:2.8rem;
+  margin-bottom:12px;
 }
 
-/* Heading */
-.container h1 {
-  margin-bottom: 10px;
-  font-size: 2.3rem;
+.container>p{
+  text-align:center;
+  color:#bcbcbc;
+  margin-bottom:35px;
 }
 
-/* Subtitle */
-.container p {
-  color: #bdbdbd;
+.card{
+  margin-top:35px;
 }
 
-/* Upload Section */
-.upload-box {
-  margin-top: 30px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
+.card h2{
+  margin-bottom:20px;
+  font-size:1.8rem;
 }
 
-/* Choose File Button */
-.custom-file-btn {
-  background: #222;
-  color: white;
-  padding: 12px 30px;
-  border-radius: 10px;
-  border: 1px solid #444;
-  cursor: pointer;
-  transition: 0.3s;
+/* ==========================
+   ROWS
+========================== */
+
+.upload-row,
+.download-row{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  margin-bottom:20px;
+  flex-wrap:wrap;
 }
 
-.custom-file-btn:hover {
-  background: #333;
-  transform: scale(1.05);
+/* ==========================
+   FILE INPUT
+========================== */
+
+input[type=file]{
+  flex:1;
+  min-width:250px;
+  color:white;
 }
 
-/* File Name */
-.upload-box p {
-  color: #bdbdbd;
+input[type=file]::file-selector-button{
+
+  background:#242424;
+  color:white;
+
+  border:none;
+
+  padding:12px 20px;
+
+  border-radius:10px;
+
+  cursor:pointer;
+
+  margin-right:15px;
+
+  transition:.3s;
+
 }
 
-/* Upload Button */
-button {
-  padding: 12px 35px;
-  border: none;
-  border-radius: 10px;
-
-  background: linear-gradient(
-    135deg,
-    #3b82f6,
-    #9333ea
-  );
-
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-
-  transition: 0.3s;
+input[type=file]::file-selector-button:hover{
+  background:#3b82f6;
 }
 
-button:hover:not(:disabled) {
-  transform: scale(1.05);
+/* ==========================
+   TEXT INPUT
+========================== */
+
+input[type=text]{
+
+  flex:1;
+
+  height:48px;
+
+  padding:0 15px;
+
+  border-radius:10px;
+
+  border:1px solid #333;
+
+  background:#1c1c1c;
+
+  color:white;
+
+  font-size:15px;
+
+  outline:none;
+
 }
 
-button:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
+input[type=text]:focus{
+  border-color:#3b82f6;
 }
 
-/* Upload Result Box */
-pre {
-  width: 100%;
-  background: #1a1a1a;
-  border: 1px solid #333;
-  border-radius: 10px;
-  padding: 15px;
-  text-align: left;
-  overflow-wrap: break-word;
+/* ==========================
+   BUTTONS
+========================== */
+
+button{
+
+  width:150px;
+
+  height:48px;
+
+  border:none;
+
+  border-radius:10px;
+
+  background:linear-gradient(135deg,#3b82f6,#9333ea);
+
+  color:white;
+
+  font-size:16px;
+
+  font-weight:600;
+
+  cursor:pointer;
+
+  transition:.3s;
+
 }
 
-/* Mobile */
-@media (max-width: 650px) {
-  .container {
-    width: 90%;
-    padding: 25px;
-  }
+button:hover:not(:disabled){
 
-  .container h1 {
-    font-size: 1.8rem;
-  }
+  transform:translateY(-3px);
+
+  box-shadow:0 8px 20px rgba(59,130,246,.35);
+
+}
+
+button:disabled{
+
+  opacity:.6;
+
+  cursor:not-allowed;
+
+}
+
+/* ==========================
+   RESULT BOX
+========================== */
+
+.result-box{
+
+  margin-top:25px;
+
+  background:#181818;
+
+  border:1px solid #2f2f2f;
+
+  border-radius:12px;
+
+  padding:20px;
+
+}
+
+.result-box h3{
+
+  color:#4ade80;
+
+  margin-bottom:15px;
+
+}
+
+.result-box p{
+
+  margin-bottom:15px;
+
+  line-height:1.6;
+
+  color:#ddd;
+
+}
+
+.result-box strong{
+
+  color:white;
+
+}
+
+.result-box a{
+
+  color:#60a5fa;
+
+  text-decoration:none;
+
+  word-break:break-all;
+
+}
+
+.result-box a:hover{
+
+  text-decoration:underline;
+
+}
+
+.selected-file{
+
+  color:#bdbdbd;
+
+  margin-top:-8px;
+
+  margin-bottom:20px;
+
+}
+
+/* ==========================
+   DIVIDER
+========================== */
+
+.card:not(:last-child){
+
+  border-bottom:1px solid #2d2d2d;
+
+  padding-bottom:35px;
+
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:768px){
+
+.container{
+
+width:95%;
+padding:30px 20px;
+
+}
+
+.container h1{
+
+font-size:2rem;
+
+}
+
+.upload-row,
+.download-row{
+
+flex-direction:column;
+
+align-items:stretch;
+
+}
+
+button{
+
+width:100%;
+
+}
+
 }
